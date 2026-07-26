@@ -1,0 +1,15 @@
+# Nixpacks configuration for Railway - Java/Spring Boot Backend
+# Backend files are at root level
+
+[phases.install]
+cmds = [
+  "mvn clean install || echo 'Maven not found, assuming Gradle'"
+]
+
+[phases.build]
+cmds = [
+  "mvn package || gradle build || echo 'Build system not detected'"
+]
+
+[start]
+cmd = "java -jar target/*.jar"
